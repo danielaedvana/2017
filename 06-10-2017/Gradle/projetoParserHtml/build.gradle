@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.jsoup', name: 'jsoup', version: '1.10.3'
+} 

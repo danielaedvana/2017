@@ -1,0 +1,16 @@
+
+
+
+
+apply plugin: 'java'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	//compile group: 'itext', name: 'itext', version: '4.2.1'
+     compile group: 'itext', name: 'itext', version: '1.3.1'
+} 
+
