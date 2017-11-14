@@ -12,6 +12,18 @@
     $config['db']['dbname'] = "minhastarefas";
 
     $app = new \Slim\App(["config" => $config]);
+	
+	$app->add(new Slim\Middleware\HttpBasicAuthentication([
+    "path" => ["/api/"],
+    "realm" => "Protected",
+    "authenticator" => new Slim\Middleware\HttpBasicAuthentication\PdoAuthenticator([
+        "pdo" => new PDO("mysql:host=" . $config['db']['host'] . ";dbname=" . $config['db']['dbname'], $config['db']['user'], $config['db']['pass']),
+        "table" => "users",
+        "user" => "username",
+        "hash" => "password"
+            ])
+]));
+
     $container = $app->getContainer();
 
     $container['db'] = function ($c) 
